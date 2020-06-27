@@ -199,11 +199,13 @@ class SimpleHistoryAdmin(admin.ModelAdmin):
             # Context variables copied from render_change_form
             "add": False,
             "change": True,
+            "has_view_permission": self.has_view_permission(request),
             "has_add_permission": self.has_add_permission(request),
             "has_change_permission": self.has_change_permission(request, obj),
             "has_delete_permission": self.has_delete_permission(request, obj),
             "has_file_field": True,
             "has_absolute_url": False,
+            "has_editable_inline_admin_formsets": False,
             "form_url": "",
             "opts": model._meta,
             "content_type_id": self.content_type_model_cls.objects.get_for_model(
